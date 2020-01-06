@@ -24,6 +24,7 @@ var constant = pipeNorth.height+gap;
 // setting bird position to variables
 var bX = 10;
 var bY = 150;
+var score = 0;
 
 var gravity = 1.5;
 
@@ -63,9 +64,12 @@ window.onload = function draw(){
         if(bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bY + bird.height >= cvs.height - fg.height){
             location.reload();
         }
+
+        if(pipe[i].x == 5){
+            score++;
+        }
         
     }
-
 
 
     ctx.drawImage(fg, 0,cvs.height - fg.height);
@@ -73,6 +77,11 @@ window.onload = function draw(){
     ctx.drawImage(bird, bX, bY);
 
     bY += gravity;
+
+    ctx.fillstyle = "#000";
+    ctx.font = "20px verdana";
+    ctx.fillText("Score : "+score,10,cvs.height-20);
+
 
     requestAnimationFrame(draw);
 
