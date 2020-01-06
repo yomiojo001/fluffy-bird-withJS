@@ -16,6 +16,13 @@ fg.src = "images/fg.png";
 pipeNorth.src = "images/pipeNorth.png";
 pipeSouth.src = "images/pipeSouth.png";
 
+// addng audio
+
+var scoreTone = new Audio();
+var fly = new Audio();
+
+scoreTone.src = "sounds/score.mp3";
+fly.src = "sounds/fly.mp3";
 
 // declaring height changes
 var gap = 85;
@@ -32,6 +39,7 @@ var gravity = 1.5;
 document.addEventListener("keydown", moveUp)
 function moveUp(){
     bY -= 30
+    fly.play();
 }
 
 // pipe dymaics
@@ -67,6 +75,7 @@ window.onload = function draw(){
 
         if(pipe[i].x == 5){
             score++;
+            scoreTone.play();
         }
         
     }
