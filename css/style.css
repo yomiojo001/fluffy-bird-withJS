@@ -5,10 +5,11 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
-h2{
+h1{
     color: whitesmoke;
     text-align: center;
     font-family: cursive;
+    font-size: 5rem;
 }
 .canvas{
     text-align: center;
